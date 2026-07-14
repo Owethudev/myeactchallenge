@@ -29,12 +29,30 @@ function App() {
     return user.name.toLowerCase().includes(lowerSearch);
   });
 
+  // I count my users.
+  const totalUsers = users.length;
+  // I show my numbers.
+  const showingUsers = filteredUsers.length;
+
   return (
     <div className="min-h-screen bg-[#F8F5EF] px-5 py-8 text-[#555555] sm:px-6 lg:px-8">
       <main className="mx-auto flex max-w-6xl flex-col">
-        <h1 className="mb-8 text-center text-3xl font-semibold text-[#555555] sm:text-4xl">
-          The Hive Mind
-        </h1>
+        {/* I make my page look nice. */}
+        <div className="mb-6 text-center">
+          <h1 className="text-3xl font-semibold text-[#555555] sm:text-4xl">
+            The Hive Mind
+          </h1>
+          <p className="mt-2 text-base text-[#777777] sm:text-lg">Find people quickly</p>
+        </div>
+
+        <div className="mb-6 flex flex-col items-center justify-center gap-3 rounded-[1.5rem] border border-[#E5DCCF] bg-[#FDFAF3] px-4 py-4 shadow-sm sm:flex-row sm:gap-6 sm:px-6">
+          <p className="text-sm font-medium text-[#666666]">
+            Total Users: {totalUsers}
+          </p>
+          <p className="text-sm font-medium text-[#666666]">
+            Showing: {showingUsers}
+          </p>
+        </div>
 
         <div className="mb-8 flex justify-center">
           <input
@@ -46,7 +64,7 @@ function App() {
           />
         </div>
 
-        <section className="flex flex-wrap justify-center gap-x-3 gap-y-5">
+        <section className="flex flex-wrap justify-center gap-x-4 gap-y-6 sm:gap-x-5 sm:gap-y-7 md:grid md:grid-cols-2 md:justify-items-center lg:flex lg:justify-center lg:gap-x-5 lg:gap-y-7">
           {error ? (
             <p className="text-center text-sm font-semibold text-[#8b4f4f]">
               {error}
@@ -62,7 +80,7 @@ function App() {
             filteredUsers.map((user) => (
               <article
                 key={user.id}
-                className="flex h-[250px] w-[220px] items-center justify-center bg-[#D9D9D9] p-5 transition duration-200 ease-out hover:scale-105 hover:bg-[#C7C7C7]"
+                className="fade-in flex h-[250px] w-[220px] items-center justify-center bg-[#D9D9D9] p-5 transition duration-200 ease-out hover:scale-105 hover:bg-[#C7C7C7]"
                 style={{ clipPath: "polygon(25% 6%, 75% 6%, 100% 50%, 75% 94%, 25% 94%, 0% 50%)" }}
               >
                 {/* I show one user. */}
